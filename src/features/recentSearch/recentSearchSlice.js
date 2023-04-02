@@ -33,8 +33,7 @@ export const recentSearchSlice = createSlice({
       state.value.push(action.payload);
     },
     spliceLocation: (state, action) => {
-      const locationIndex = state.value.findIndex(action);
-      locationIndex > -1 && state.value.splice(locationIndex, 1);
+      if(action.payload > -1) state.value.splice(action.payload, 1);
     },
   },
 });
